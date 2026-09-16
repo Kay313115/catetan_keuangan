@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catetan Keuangan</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <h1>Catetan Keuangan Pribadi</h1>
+    <span>Keuangan Pribadi</span>
+  </div>
+</header>
+
+<main class="container">
+  <section class="summary-grid">
+    <div class="summary-card"><label>Pemasukan</label><strong id="totalIncome">Rp 0</strong></div>
+    <div class="summary-card"><label>Pengeluaran</label><strong id="totalExpense">Rp 0</strong></div>
+    <div class="summary-card balance"><label>Saldo</label><strong id="totalBalance">Rp 0</strong></div>
+  </section>
+
+  <section class="main-layout">
+    <div class="card" id="col-chart">
+      <div class="card-title">Grafik Bulanan</div>
+      <canvas id="monthlyChart" height="260"></canvas>
+    </div>
+
+    <div class="card" id="col-form">
+      <div class="card-title">Transaksi Baru</div>
+      <div class="form-group">
+        <input type="date" id="inputDate">
+        <input type="text" id="inputDesc" placeholder="Deskripsi" maxlength="50">
+        <div class="row">
+          <select id="inputType"><option value="income">Masuk</option><option value="expense">Keluar</option></select>
+          <input type="number" id="inputAmount" placeholder="Nominal">
+        </div>
+        <button id="btnSave">Simpan</button>
+      </div>
+    </div>
+
+    <div class="card" id="col-history">
+      <div class="card-title">Riwayat Transaksi</div>
+      <!-- INI YANG GUE TAMBAHIN BIAR GAK BLANK -->
+      <select id="filterMonth" style="width:100%;margin-bottom:8px"><option value="all">Semua Bulan</option></select>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tgl</th><th>Ket</th><th>Masuk</th><th>Keluar</th><th></th></tr></thead>
+          <tbody id="transactionList"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="prevPage">‹ Prev</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">Next ›</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="app-footer">&#169;diki dwi.n</footer>
+<script src="script.js"></script>
+</body>
+</html>

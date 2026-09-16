@@ -1,0 +1,49 @@
+:root{--primary:#00b894;--bg:#f5f7fa;--card:#fff;--muted:#888;--danger:#d63031;--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,sans-serif}
+body{background:var(--bg);color:#222}
+
+/* HEADER KIRI - yang lu minta */
+.app-header{background:linear-gradient(135deg,#00b894,#00cec9);padding:20px 24px;color:#fff}
+.header-inner{max-width:1200px;margin:0 auto;text-align:left}
+.header-inner h1{font-size:20px}
+.header-inner span{font-size:12px;opacity:.9}
+
+.container{max-width:1200px;margin:auto;padding:16px}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+.summary-card{background:var(--card);padding:14px;border-radius:var(--radius);text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.summary-card label{font-size:10px;color:var(--muted);text-transform:uppercase}
+.summary-card strong{display:block;margin-top:6px;font-size:14px}
+
+/* LAYOUT 3 KOLOM - GRAFIK KIRI, FORM TENGAH, RIWAYAT KANAN */
+.main-layout{display:grid;grid-template-columns:1.2fr 0.8fr 1.2fr;gap:16px;align-items:start}
+
+.card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.card-title{font-size:13px;font-weight:600;margin-bottom:12px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.row{display:flex;gap:8px}
+input,select{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;outline:none}
+input:focus,select:focus{border-color:var(--primary)}
+button{background:var(--primary);color:#fff;border:0;border-radius:10px;padding:12px;font-weight:600;cursor:pointer;margin-top:6px}
+button:active{transform:scale(.98)}
+.table-wrap{overflow-x:auto;max-height:420px;overflow-y:auto}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;color:var(--muted);padding:10px 8px;border-bottom:1px solid #eee;text-align:left;text-transform:uppercase;position:sticky;top:0;background:#fff}
+td{font-size:13px;padding:10px 8px;border-bottom:1px solid #f1f1f1}
+.app-footer{text-align:center;font-size:11px;color:#aaa;padding:24px}
+
+/* RESPONSIVE: Kalau di HP, balik jadi vertikal lagi biar gak sempit */
+@media(max-width:900px){
+  .main-layout{grid-template-columns:1fr}
+  .header-inner{text-align:left}
+  .container{max-width:520px}
+}
+/* FIX GRAFIK TOWER */
+#col-chart{
+  display:flex;
+  flex-direction:column;
+}
+#monthlyChart{
+  max-height: 220px !important;
+  height: 220px !important;
+  width: 100% !important;
+}
